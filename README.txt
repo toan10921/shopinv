@@ -61,3 +61,5 @@ Insert sample db:
 
 make all Seeders
 run Seeders
+
+Start coding
