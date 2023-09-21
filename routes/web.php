@@ -13,16 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\ProductController::class, 'homePage'])->name('home');
+Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'singleProduct'])->name('products.single');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // route group
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-    // Route::resource('brands', App\Http\Controllers\BrandController::class);
-    // Route::resource('products', App\Http\Controllers\ProductController::class);
+    Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('admin');
+    Route::resource('brands', App\Http\Controllers\BrandController::class)->names([
+        'index' => 'brands.index',
+        'create' => 'brands.create',
+        'store' => 'brands.store',
+        'show' => 'brands.show',
+        'edit' => 'brands.edit',
+        'update' => 'brands.update',
+        'destroy' => 'brands.destroy',
+    ]);
+    Route::resource('products', App\Http\Controllers\ProductController::class)->names([
+        'index' => 'products.index',
+        'create' => 'products.create',
+        'store' => 'products.store',
+        'show' => 'products.show',
+        'edit' => 'products.edit',
+        'update' => 'products.update',
+        'destroy' => 'products.destroy',
+    ]);
 });

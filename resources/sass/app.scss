@@ -6,3 +6,94 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.deli-wrap .item {
+    width: 33.33333%;
+    text-align: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+        right: 0px;
+        top: 0px;
+        height: 100%;
+        width: 1px;
+        background: #e5e5e5;
+        position: absolute;
+    }
+}
+
+.quantity-wrap {
+    position: relative;
+
+    input.quantity {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+
+    .btn {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        height: 100%;
+        padding: 0px 5px;
+    }
+
+    .btn-minus {
+        left: 0px;
+    }
+
+    .btn-plus {
+        right: 0px;
+    }
+}
+
+.mini-cart-wrap {
+    position: relative;
+
+    .btn-open-cart {
+        position: relative;
+        .cart-number{
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            border-radius: 50%;
+            background: red;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            line-height: 20px;
+        }
+    }
+
+    .mini-cart {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 350px;
+        background: #fff;
+        padding: 15px;
+        top: 101%;
+        border-radius: 5px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+        height: fit-content;
+        .mini-cart-item {
+            .mini-cart-item-image {
+                width: 80px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.product-galleries{
+    .gallery-item{
+        width: 33.33333%;
+    }
+}

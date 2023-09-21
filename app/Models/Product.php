@@ -14,5 +14,6 @@ class Product extends Model
         'brand_id',
         'desc',
         'price',
+        'thumbnail'
     ];
 }
